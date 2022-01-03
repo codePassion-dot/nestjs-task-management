@@ -25,4 +25,13 @@ export class TasksService {
   getTaskById(id: string): Task {
     return this.tasks.find((task) => task.id === id);
   }
+
+  deleteTaskById(targetId: string): string {
+    const index = this.tasks.findIndex(({ id }) => id === targetId);
+    if (index !== -1) {
+      this.tasks.splice(index, 1);
+      return 'Deleted Element';
+    }
+    return 'The element does not exist';
+  }
 }
