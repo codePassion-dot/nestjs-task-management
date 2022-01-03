@@ -34,4 +34,10 @@ export class TasksService {
     }
     return 'The element does not exist';
   }
+
+  updateTaskStatus(id: string, status: TaskStatus) {
+    const task = this.getTaskById(id);
+    task.status = status;
+    return task;
+  }
 }
