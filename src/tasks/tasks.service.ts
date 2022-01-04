@@ -45,18 +45,17 @@ export class TasksService {
   getTaskById(id: string): Task {
     const found = this.tasks.find((task) => task.id === id);
     if (!found) {
-      throw new NotFoundException();
+      throw new NotFoundException(`Task with id: ${id} not found`);
     }
     return found;
   }
 
-  deleteTaskById(targetId: string): string {
+  deleteTaskById(targetId: string): void {
+    const found = this.getTaskById(targetId);
     const index = this.tasks.findIndex(({ id }) => id === targetId);
-    if (index !== -1) {
+    if (found) {
       this.tasks.splice(index, 1);
-      return 'Deleted Element';
     }
-    return 'The element does not exist';
   }
 
   updateTaskStatus(id: string, status: TaskStatus) {
