@@ -29,7 +29,11 @@
     "reflect-metadata": "^0.1.13",
     "rimraf": "^3.0.2",
     "rxjs": "^7.2.0",
+<<<<<<< HEAD
     "uuid": "^8.3.2"
+=======
+    "typeorm": "^0.2.41"
+>>>>>>> c52e509 (Removed uuid package to use the provided by typeorm)
   },
   "devDependencies": {
     "@nestjs/cli": "^8.0.0",
